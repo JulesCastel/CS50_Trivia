@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const pt1_answers = document.querySelectorAll('div.pt1-answers > button');
+                let pt1_feedback = document.getElementById('pt1-feedback');
+                for (i = 0; i < pt1_answers.length; i++) {
+                    pt1_answers[i].addEventListener('click', function() {
+                        if (this.innerHTML == 'Au') {
+                            pt1_feedback.style.color = 'green';
+                            pt1_feedback.innerHTML = 'Correct! :)';
+                        }
+                        else {
+                            pt1_feedback.style.color = 'red';
+                            pt1_feedback.innerHTML = 'Incorrect :(';
+                        }
+                    });
+                }
+                let pt2_answer = document.getElementById('pt2-answer');
+                const pt2_button = document.getElementById('pt2-submit');
+                console.log(pt2_answer);
+                let pt2_feedback = document.getElementById('pt2-feedback');
+                pt2_button.addEventListener("click", function() {
+                    if (pt2_answer.value.toLowerCase() == 'bhutan')
+                    {
+                        pt2_feedback.style.color = 'green';
+                        pt2_feedback.innerHTML = 'Correct! :)';
+                    }
+                    else {
+                        pt2_feedback.style.color = 'red';
+                        pt2_feedback.innerHTML = 'Incorrect :(';
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the chemical symbol of Gold?</h3>
+                <p id="pt1-feedback"></p>
+                <div class="pt1-answers">
+                    <button>Go</button>
+                    <button>Gd</button>
+                    <button>Au</button>
+                    <button>Ar</button>
+                    <button>Or</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What country does this flag belong to?</h3>
+                <p id="pt2-feedback"></p>
+                <img src="flag.gif">
+                <div class="p2">
+                    <input id="pt2-answer" type="text">
+                    <button id="pt2-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
